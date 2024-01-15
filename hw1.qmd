@@ -8,12 +8,12 @@ title-block-style: default
 format: pdf
 ---
 
-[Link to the Github repository](&&&&&)
+[Link to the Github repository](https://github.com/STAT380/hw1.git)
 
 ---
 
 ::: {.callout-important}
-## Due: Sun, Jan 29, 2023 @ 11:59pm
+## Due: Fri, Jan 26, 2024 @ 11:59pm
 
 
 
@@ -42,7 +42,7 @@ Please read the instructions carefully before submitting your assignment.
 
 In this question, we will walk through the process of _forking_ a `git` repository and submitting a _pull request_. 
 
-1. Navigate to the Github repository [here](&&&&&) and fork it by clicking on the icon in the top right
+1. Navigate to the Github repository [here](https://github.com/STAT380/hw1.git) and fork it by clicking on the icon in the top right
 
 ![](images/fork.png)
 
@@ -70,7 +70,7 @@ In this question, we will walk through the process of _forking_ a `git` reposito
 
 5. When you're done working on your assignment, push the changes to your github repository.
 
-6. Navigate to the original Github repository [here](&&&&&) and submit a pull request linking to your repository. 
+6. Navigate to the original Github repository [here](https://github.com/STAT380/hw1.git) and submit a pull request linking to your repository. 
     
     Remember to **include your name** in the pull request information!
 
