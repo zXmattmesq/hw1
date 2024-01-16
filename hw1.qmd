@@ -55,8 +55,6 @@ In this question, we will walk through the process of _forking_ a `git` reposito
     $ cd hw-1
     ```
 
-    Alternatively, you can use Github codespaces to get started from your repository directly.
-
 3. In order to activate the `R` environment for the homework, make sure you have `renv` installed beforehand. To activate the `renv` environment for this assignment, open an instance of the `R` console from within the directory and type
     
     ```R

@@ -197,8 +197,7 @@ Due: Fri, Jan 26, 2024 @ 11:59pm
 <ol start="2" type="1">
 <li><p>Clone your Github repository on your local machine</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">$</span> git clone <span class="op">&lt;&lt;insert</span> <span class="ex">your</span> repository url here<span class="op">&gt;&gt;</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">$ cd hw-1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Alternatively, you can use Github codespaces to get started from your repository directly.</p></li>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">$ cd hw-1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
 <li><p>In order to activate the <code>R</code> environment for the homework, make sure you have <code>renv</code> installed beforehand. To activate the <code>renv</code> environment for this assignment, open an instance of the <code>R</code> console from within the directory and type</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>renv<span class="sc">::</span><span class="fu">activate</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Follow the instrutions in order to make sure that <code>renv</code> is configured correctly.</p></li>
@@ -317,11 +316,11 @@ Tip
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">generate_matrix</span>(<span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>           [,1]       [,2]       [,3]       [,4]
-[1,] 0.22421039 -0.4915495 -0.6518972 -1.0369147
-[2,] 0.62042747 -0.6143578  0.1769231 -1.7693751
-[3,] 0.15194707 -0.6924603  1.0774410 -0.2774063
-[4,] 0.01948096  0.5000232  1.4582802 -0.8350482</code></pre>
+<pre><code>           [,1]       [,2]      [,3]       [,4]
+[1,] -0.3190820  0.7625396 -1.359496  0.2745846
+[2,]  0.9534696 -0.3783346  1.262866 -0.7456934
+[3,] -0.3412813  0.1116000 -0.830151 -1.2135072
+[4,] -1.1918195  0.4731648 -1.454247  0.3885853</code></pre>
 </div>
 </div>
 <p>Let <code>M</code> be a fixed <span class="math inline">\(50 \times 50\)</span> matrix</p>
@@ -329,7 +328,7 @@ Tip
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>M <span class="ot">&lt;-</span> <span class="fu">generate_matrix</span>(<span class="dv">50</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(M)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.005803896</code></pre>
+<pre><code>[1] -0.01713926</code></pre>
 </div>
 </div>
 <ol start="2" type="1">
