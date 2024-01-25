@@ -4,7 +4,7 @@ author: "[Matt Viana]{style='background-color: yellow;'}"
 toc: true
 title-block-banner: true
 title-block-style: default
-format: html
+format: docx
 #format: pdf
 editor: 
   markdown: 

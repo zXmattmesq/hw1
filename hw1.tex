@@ -1,0 +1,768 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{241,243,245}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.40,0.45,0.13}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\BuiltInTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\ExtensionTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.28,0.35,0.67}{#1}}
+\newcommand{\ImportTok}[1]{\textcolor[rgb]{0.00,0.46,0.62}{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\NormalTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.68,0.00,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{\textcolor[rgb]{0.00,0.23,0.31}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.07,0.07,0.07}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.13,0.47,0.30}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.37,0.37,0.37}{\textit{#1}}}
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\VerbatimFootnotes % allow verbatim text in footnotes
+\hypersetup{
+  pdftitle={Homework 1},
+  pdfauthor={Matt Viana},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Homework 1}
+\author{{Matt Viana}}
+\date{}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[boxrule=0pt, frame hidden, enhanced, interior hidden, breakable, borderline west={3pt}{0pt}{shadecolor}, sharp corners]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+\href{https://github.com/STAT380/hw1.git}{Link to the Github repository}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{tcolorbox}[enhanced jigsaw, colback=white, bottomrule=.15mm, coltitle=black, rightrule=.15mm, toprule=.15mm, opacityback=0, title=\textcolor{quarto-callout-important-color}{\faExclamation}\hspace{0.5em}{Due: Fri, Jan 26, 2024 @ 11:59pm}, breakable, colbacktitle=quarto-callout-important-color!10!white, opacitybacktitle=0.6, bottomtitle=1mm, colframe=quarto-callout-important-color-frame, toptitle=1mm, leftrule=.75mm, arc=.35mm, titlerule=0mm, left=2mm]
+
+Please read the instructions carefully before submitting your
+assignment.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  This assignment requires you to:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Upload your Quarto markdown files to a \texttt{git} repository
+  \item
+    Upload a \texttt{PDF} file on Canvas
+  \end{itemize}
+\item
+  Don't collapse any code cells before submitting.
+\item
+  Remember to make sure all your code output is rendered properly before
+  uploading your submission.
+\end{enumerate}
+
+⚠️ Please add your name to the the author information in the frontmatter
+before submitting your assignment.
+
+\end{tcolorbox}
+
+\hypertarget{section}{%
+\subsection{\texorpdfstring{}{    }}\label{section}}
+
+\hypertarget{question-1}{%
+\subsection{Question 1}\label{question-1}}
+
+\begin{tcolorbox}[enhanced jigsaw, colback=white, bottomrule=.15mm, coltitle=black, rightrule=.15mm, toprule=.15mm, opacityback=0, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{20 points}, breakable, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, toptitle=1mm, leftrule=.75mm, arc=.35mm, titlerule=0mm, left=2mm]
+
+\end{tcolorbox}
+
+In this question, we will walk through the process of \emph{forking} a
+\texttt{git} repository and submitting a \emph{pull request}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Navigate to the Github repository
+  \href{https://github.com/STAT380/hw1.git}{here} and fork it by
+  clicking on the icon in the top right
+\end{enumerate}
+
+\includegraphics{images/fork.png}
+
+\begin{quote}
+Provide a sensible name for your forked repository when prompted.
+\end{quote}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Clone your Github repository on your local machine
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ExtensionTok{$}\NormalTok{ git clone }\OperatorTok{\textless{}\textless{}insert} \ExtensionTok{your}\NormalTok{ repository url here}\OperatorTok{\textgreater{}\textgreater{}}
+\StringTok{$ cd hw{-}1}
+\end{Highlighting}
+\end{Shaded}
+\item
+  In order to activate the \texttt{R} environment for the homework, make
+  sure you have \texttt{renv} installed beforehand. To activate the
+  \texttt{renv} environment for this assignment, open an instance of the
+  \texttt{R} console from within the directory and type
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{renv}\SpecialCharTok{::}\FunctionTok{activate}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+  Follow the instrutions in order to make sure that \texttt{renv} is
+  configured correctly.
+\item
+  Work on the \emph{reminaing part} of this assignment as a
+  \texttt{.qmd} file.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Create a \texttt{PDF} and \texttt{HTML} file for your output by
+    modifying the YAML frontmatter for the Quarto \texttt{.qmd} document
+  \end{itemize}
+\item
+  When you're done working on your assignment, push the changes to your
+  github repository.
+\item
+  Navigate to the original Github repository
+  \href{https://github.com/STAT380/hw1.git}{here} and submit a pull
+  request linking to your repository.
+
+  Remember to \textbf{include your name} in the pull request
+  information!
+\end{enumerate}
+
+If you're stuck at any step along the way, you can refer to the
+\href{https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork}{official
+Github docs here}
+
+---
+
+\hypertarget{question-2}{%
+\subsection{Question 2}\label{question-2}}
+
+\begin{tcolorbox}[enhanced jigsaw, colback=white, bottomrule=.15mm, coltitle=black, rightrule=.15mm, toprule=.15mm, opacityback=0, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{30 points}, breakable, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, toptitle=1mm, leftrule=.75mm, arc=.35mm, titlerule=0mm, left=2mm]
+
+\end{tcolorbox}
+
+Consider the following vector
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_vec }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}
+    \StringTok{"+0.07"}\NormalTok{,}
+    \StringTok{"{-}0.07"}\NormalTok{,}
+    \StringTok{"+0.25"}\NormalTok{,}
+    \StringTok{"{-}0.84"}\NormalTok{,}
+    \StringTok{"+0.32"}\NormalTok{,}
+    \StringTok{"{-}0.24"}\NormalTok{,}
+    \StringTok{"{-}0.97"}\NormalTok{,}
+    \StringTok{"{-}0.36"}\NormalTok{,}
+    \StringTok{"+1.76"}\NormalTok{,}
+    \StringTok{"{-}0.36"}
+\NormalTok{)}
+
+\FunctionTok{typeof}\NormalTok{(my\_vec)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "character"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_vec\_double }\OtherTok{\textless{}{-}} \FunctionTok{as.double}\NormalTok{(my\_vec)}
+\NormalTok{my\_vec\_int }\OtherTok{\textless{}{-}} \FunctionTok{as.integer}\NormalTok{(my\_vec)}
+
+\FunctionTok{typeof}\NormalTok{(my\_vec\_double)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "double"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{typeof}\NormalTok{(my\_vec\_int)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] "integer"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my\_vec\_bool }\OtherTok{\textless{}{-}}\NormalTok{ my\_vec\_double }\SpecialCharTok{\textless{}=} \DecValTok{0}
+
+\FunctionTok{print}\NormalTok{(my\_vec\_bool)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1] FALSE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(}\FunctionTok{sort}\NormalTok{(my\_vec\_double))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+ [1] -0.97 -0.84 -0.36 -0.36 -0.24 -0.07  0.07  0.25  0.32  1.76
+\end{verbatim}
+
+For the following questions, provide your answers in a code cell.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  What data type does the vector contain?
+\item
+  Create two new vectors called \texttt{my\_vec\_double} and
+  \texttt{my\_vec\_int} which converts \texttt{my\_vec} to Double \&
+  Integer types, respectively,
+\item
+  Create a new vector \texttt{my\_vec\_bool} which comprises of:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    TRUEif an element in \texttt{my\_vec\_double} is \(\le 0\)
+  \item
+    FALSE if an element in \texttt{my\_vec\_double} is \(\ge 0\)
+  \end{itemize}
+
+  How many elements of \texttt{my\_vec\_double} are greater than zero?
+\item
+  Sort the values of \texttt{my\_vec\_double} in ascending order.
+\end{enumerate}
+
+---
+
+\hypertarget{question-3}{%
+\subsection{Question 3}\label{question-3}}
+
+\begin{tcolorbox}[enhanced jigsaw, colback=white, bottomrule=.15mm, coltitle=black, rightrule=.15mm, toprule=.15mm, opacityback=0, title=\textcolor{quarto-callout-tip-color}{\faLightbulb}\hspace{0.5em}{50 points}, breakable, colbacktitle=quarto-callout-tip-color!10!white, opacitybacktitle=0.6, bottomtitle=1mm, colframe=quarto-callout-tip-color-frame, toptitle=1mm, leftrule=.75mm, arc=.35mm, titlerule=0mm, left=2mm]
+
+\end{tcolorbox}
+
+In this question we will get a better understanding of how \texttt{R}
+handles large data structures in memory.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Provide \texttt{R} code to construct the following matrices: \[
+  \begin{bmatrix} 
+  1 & 2 & 3\\
+  4 & 5 & 6\\
+  7 & 8 & 9\\
+  \end{bmatrix}
+  \quad \text{ and } \quad
+  \begin{bmatrix} 
+  1 & 2 & 3 & 4 & 5 & \dots & 100\\
+  1 & 4 & 9 & 16 & 25 & \dots & 10000\\
+  \end{bmatrix}
+  \]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mat1 }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{, }\AttributeTok{nrow =} \DecValTok{3}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+
+\NormalTok{mat2 }\OtherTok{\textless{}{-}} \FunctionTok{matrix}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{100}\NormalTok{, (}\DecValTok{1}\SpecialCharTok{:}\DecValTok{100}\NormalTok{)}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{), }\AttributeTok{nrow =} \DecValTok{2}\NormalTok{, }\AttributeTok{byrow =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{print}\NormalTok{(mat1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3]
+[1,]    1    2    3
+[2,]    4    5    6
+[3,]    7    8    9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(mat2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11] [,12] [,13] [,14]
+[1,]    1    2    3    4    5    6    7    8    9    10    11    12    13    14
+[2,]    1    4    9   16   25   36   49   64   81   100   121   144   169   196
+     [,15] [,16] [,17] [,18] [,19] [,20] [,21] [,22] [,23] [,24] [,25] [,26]
+[1,]    15    16    17    18    19    20    21    22    23    24    25    26
+[2,]   225   256   289   324   361   400   441   484   529   576   625   676
+     [,27] [,28] [,29] [,30] [,31] [,32] [,33] [,34] [,35] [,36] [,37] [,38]
+[1,]    27    28    29    30    31    32    33    34    35    36    37    38
+[2,]   729   784   841   900   961  1024  1089  1156  1225  1296  1369  1444
+     [,39] [,40] [,41] [,42] [,43] [,44] [,45] [,46] [,47] [,48] [,49] [,50]
+[1,]    39    40    41    42    43    44    45    46    47    48    49    50
+[2,]  1521  1600  1681  1764  1849  1936  2025  2116  2209  2304  2401  2500
+     [,51] [,52] [,53] [,54] [,55] [,56] [,57] [,58] [,59] [,60] [,61] [,62]
+[1,]    51    52    53    54    55    56    57    58    59    60    61    62
+[2,]  2601  2704  2809  2916  3025  3136  3249  3364  3481  3600  3721  3844
+     [,63] [,64] [,65] [,66] [,67] [,68] [,69] [,70] [,71] [,72] [,73] [,74]
+[1,]    63    64    65    66    67    68    69    70    71    72    73    74
+[2,]  3969  4096  4225  4356  4489  4624  4761  4900  5041  5184  5329  5476
+     [,75] [,76] [,77] [,78] [,79] [,80] [,81] [,82] [,83] [,84] [,85] [,86]
+[1,]    75    76    77    78    79    80    81    82    83    84    85    86
+[2,]  5625  5776  5929  6084  6241  6400  6561  6724  6889  7056  7225  7396
+     [,87] [,88] [,89] [,90] [,91] [,92] [,93] [,94] [,95] [,96] [,97] [,98]
+[1,]    87    88    89    90    91    92    93    94    95    96    97    98
+[2,]  7569  7744  7921  8100  8281  8464  8649  8836  9025  9216  9409  9604
+     [,99] [,100]
+[1,]    99    100
+[2,]  9801  10000
+\end{verbatim}
+\end{enumerate}
+
+\begin{tcolorbox}[enhanced jigsaw, colback=white, bottomrule=.15mm, coltitle=black, rightrule=.15mm, toprule=.15mm, opacityback=0, title=\textcolor{quarto-callout-warning-color}{\faExclamationTriangle}\hspace{0.5em}{Tip}, breakable, colbacktitle=quarto-callout-warning-color!10!white, opacitybacktitle=0.6, bottomtitle=1mm, colframe=quarto-callout-warning-color-frame, toptitle=1mm, leftrule=.75mm, arc=.35mm, titlerule=0mm, left=2mm]
+
+Recall the discussion in class on how \texttt{R} fills in matrices
+
+\end{tcolorbox}
+
+In the next part, we will discover how knowledge of the way in which a
+matrix is stored in memory can inform better code choices. To this end,
+the following function takes an input \(n\) and creates an
+\(n \times n\) matrix with random entries.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{generate\_matrix }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(n)\{}
+    \FunctionTok{return}\NormalTok{(}
+        \FunctionTok{matrix}\NormalTok{(}
+            \FunctionTok{rnorm}\NormalTok{(n}\SpecialCharTok{\^{}}\DecValTok{2}\NormalTok{),}
+            \AttributeTok{nrow=}\NormalTok{n}
+\NormalTok{        )}
+\NormalTok{    )}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+For example:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{generate\_matrix}\NormalTok{(}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+           [,1]       [,2]       [,3]       [,4]
+[1,] -0.4668045 -0.2261154  0.6635231  0.1650828
+[2,] -0.5990551 -2.1491002  0.3755844 -0.1971508
+[3,]  0.1277158 -0.5084262  0.1743325 -0.1505400
+[4,]  3.0727892 -0.3098871 -2.6135210  1.5284169
+\end{verbatim}
+
+Let \texttt{M} be a fixed \(50 \times 50\) matrix
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{M }\OtherTok{\textless{}{-}} \FunctionTok{generate\_matrix}\NormalTok{(}\DecValTok{5000}\NormalTok{)}
+\FunctionTok{mean}\NormalTok{(M)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] -9.28404e-05
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Write a function \texttt{row\_wise\_scan} which scans the entries of
+  \texttt{M} one row after another and outputs the number of elements
+  whose value is \(\ge 0\). You can use the following \textbf{starter
+  code}
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{row\_wise\_scan }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{    n }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(x)}
+\NormalTok{    m }\OtherTok{\textless{}{-}} \FunctionTok{ncol}\NormalTok{(x)}
+
+    \CommentTok{\# Insert your code here}
+\NormalTok{    count }\OtherTok{\textless{}{-}} \DecValTok{0}
+    \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in}\NormalTok{ n)\{}
+        \ControlFlowTok{for}\NormalTok{(m }\ControlFlowTok{in}\NormalTok{ i)\{}
+            \ControlFlowTok{if}\NormalTok{(m }\SpecialCharTok{\textgreater{}=} \DecValTok{0}\NormalTok{)\{}
+\NormalTok{                count }\OtherTok{\textless{}{-}}\NormalTok{ count }\SpecialCharTok{+} \DecValTok{1} 
+\NormalTok{            \}}
+\NormalTok{        \}}
+\NormalTok{    \}}
+
+    \FunctionTok{return}\NormalTok{(count)}
+\NormalTok{  \}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Similarly, write a function \texttt{col\_wise\_scan} which does
+  exactly the same thing but scans the entries of \texttt{M} one column
+  after another
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{col\_wise\_scan }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{    count }\OtherTok{\textless{}{-}} \DecValTok{0}
+    
+\NormalTok{    n }\OtherTok{\textless{}{-}} \FunctionTok{nrow}\NormalTok{(x)}
+\NormalTok{    m }\OtherTok{\textless{}{-}} \FunctionTok{ncol}\NormalTok{(x)}
+
+    \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in}\NormalTok{ m)\{}
+        \ControlFlowTok{for}\NormalTok{(n }\ControlFlowTok{in}\NormalTok{ i)\{}
+            \ControlFlowTok{if}\NormalTok{(n }\SpecialCharTok{\textgreater{}=} \DecValTok{0}\NormalTok{)\{}
+\NormalTok{                count }\OtherTok{\textless{}{-}}\NormalTok{ count }\SpecialCharTok{+} \DecValTok{1} 
+\NormalTok{            \}}
+\NormalTok{        \}}
+\NormalTok{    \}}
+
+    \FunctionTok{return}\NormalTok{(count)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+You can check if your code is doing what it's supposed to using the
+function here\footnote{If your code is right, the following code should
+  evaluate to be \texttt{TRUE}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sapply}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{100}\NormalTok{, }\ControlFlowTok{function}\NormalTok{(i) \{}
+\NormalTok{    x }\OtherTok{\textless{}{-}} \FunctionTok{generate\_matrix}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+    \FunctionTok{row\_wise\_scan}\NormalTok{(x) }\SpecialCharTok{==} \FunctionTok{col\_wise\_scan}\NormalTok{(x)}
+\NormalTok{\}) }\SpecialCharTok{\%\textgreater{}\%}\NormalTok{ sum }\SpecialCharTok{==} \DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  Between \texttt{col\_wise\_scan} and \texttt{row\_wise\_scan}, which
+  function do you expect to take shorter to run? Why?
+
+  They should be the same as they are both looking at the same number of
+  data points.
+\item
+  Write a function \texttt{time\_scan} which takes in a method
+  \texttt{f} and a matrix \texttt{M} and outputs the amount of time
+  taken to run \texttt{f(M)}
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{time\_scan }\OtherTok{\textless{}{-}} \ControlFlowTok{function}\NormalTok{(f, M) \{}
+\NormalTok{    initial\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+    \FunctionTok{f}\NormalTok{(M)}
+\NormalTok{    final\_time }\OtherTok{\textless{}{-}} \FunctionTok{Sys.time}\NormalTok{()}
+    
+\NormalTok{    total\_time\_taken }\OtherTok{\textless{}{-}}\NormalTok{ final\_time }\SpecialCharTok{{-}}\NormalTok{ initial\_time}
+    \FunctionTok{return}\NormalTok{(total\_time\_taken)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Provide your output to
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{list}\NormalTok{(}
+    \AttributeTok{row\_wise\_time =} \FunctionTok{time\_scan}\NormalTok{(row\_wise\_scan, M),}
+    \AttributeTok{col\_wise\_time =} \FunctionTok{time\_scan}\NormalTok{(row\_wise\_scan, M)}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+$row_wise_time
+Time difference of 0.00408411 secs
+
+$col_wise_time
+Time difference of 9.059906e-06 secs
+\end{verbatim}
+
+Which took longer to run?
+
+they varied. Sometimes one was faster, others it changed.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\item
+  Repeat this experiment now when:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{M} is a \(100 \times 100\) matrix
+  \item
+    \texttt{M} is a \(1000 \times 1000\) matrix
+  \item
+    \texttt{M} is a \(5000 \times 5000\) matrix
+  \end{itemize}
+
+  The conclusion remains the same, they vary. It just runs for a little
+  longer.
+\end{enumerate}
+
+What can you conclude?
+
+---
+
+\hypertarget{appendix}{%
+\section{Appendix}\label{appendix}}
+
+Print your \texttt{R} session information using the following command
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+R version 4.3.1 (2023-06-16 ucrt)
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+Running under: Windows 11 x64 (build 22621)
+
+Matrix products: default
+
+
+locale:
+[1] LC_COLLATE=English_United States.utf8 
+[2] LC_CTYPE=English_United States.utf8   
+[3] LC_MONETARY=English_United States.utf8
+[4] LC_NUMERIC=C                          
+[5] LC_TIME=English_United States.utf8    
+
+time zone: America/New_York
+tzcode source: internal
+
+attached base packages:
+[1] stats     graphics  grDevices datasets  utils     methods   base     
+
+loaded via a namespace (and not attached):
+ [1] compiler_4.3.1  fastmap_1.1.1   cli_3.6.2       htmltools_0.5.7
+ [5] tools_4.3.1     yaml_2.3.8      rmarkdown_2.25  knitr_1.45     
+ [9] jsonlite_1.8.8  xfun_0.41       digest_0.6.34   rlang_1.1.3    
+[13] renv_1.0.3      evaluate_0.23  
+\end{verbatim}
+
+
+
+\end{document}
